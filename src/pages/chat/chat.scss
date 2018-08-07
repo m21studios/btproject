@@ -1,0 +1,75 @@
+page-chat {
+
+}
+
+.chatroom
+{
+    width: 70%;
+    height: 90%;
+    //background: rgb(30,144,255);
+    margin: 5px auto;
+    align-content: center;
+    //padding: 5px auto;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 290px;
+    margin-top: -5px;
+}
+
+.chatroom p{
+    width: 80%;
+    height: auto;
+    margin: 5px auto;
+    text-align: justify;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    color: red;
+}
+
+.listadodeempleados{
+    width: 280px;
+    height: auto;
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(30,144,255);
+    margin: 2px auto;
+    align-content: center;
+    position: absolute;
+    top: 10px;
+    left: 9px;
+}
+
+.ventanachat{
+    width: 40%;
+    height: 90%;
+    //border: 1px solid red;
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    border-radius: 5px 5px 5px 5px;
+    //background: rgb(138, 103, 103);
+    margin: 5px auto;
+}
+
+#place{
+    color: rgb(49, 49, 49);
+    font-weight: 300; 
+    font-size: 16px;
+    background: aliceblue;
+}
+
+#place::placeholder{
+    color: rgb(49, 49, 49);
+    font-weight: 300; 
+    font-size: 16px;
+    background: aliceblue;
+}
+
+.interiorVentana{
+    //background: rgb(138, 103, 103);
+}
+
+.mensajetexto{
+    word-break: break-all;
+    width: 80%;
+    //border: 1px solid red;
+    overflow-wrap: break-all;
+}

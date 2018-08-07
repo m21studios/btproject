@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-item>
+    <!--ion-icon name="home" md="md-home"item-start >Home</ion-icon-->
+    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start (click)="goHome()">
+    <ion-label item-end>Chat</ion-label>
+    <ion-input placeholder="Usuario"[(ngModel)]="userName"></ion-input>
+    <ion-avatar item-end>
+      <img src="assets/imgs/jefe.png">
+    </ion-avatar>
+  </ion-item>
+</ion-header>
+
+<ion-content #content padding id="content" style="background-image: url('assets/imgs/chatbg.jpeg'); background-size: cover; background-position: center;">
+ 
+ <div class="ventanachat">
+  <ion-content class="interiorVentana" style="background-color: rgb(192, 192, 192);">
+    <ion-list *ngFor="let message of messages">
+      <ion-card>
+        <ion-card-content>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/logo.png" alt="">
+            </ion-avatar>
+            <h2 style="font-weight: 300; font-size: 18px; text-align: left; color: dodgerblue;">{{message.nombre}} dice:</h2> 
+          </ion-item>
+          <p style="color: rgb(26, 25, 25); font-weight: 300; font-size: 16px; text-align: left;"> {{message.mensaje}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+    <div id="content-end"></div> 
+  </ion-content>
+ </div>
+
+</ion-content>
+    
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-input placeholder="Escribe algo: " [(ngModel)]="message" id="place"></ion-input>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="sendMessajes()">
+        Enviar
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+    

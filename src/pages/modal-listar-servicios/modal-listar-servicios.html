@@ -1,0 +1,120 @@
+
+<ion-header>
+
+  <ion-item item-start>
+    <ion-avatar>
+      <img src="assets/imgs/logo.png" alt="">
+    </ion-avatar>
+    <p>username</p>
+    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-end>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="headconsulser">
+    <div class="feiser">
+      <ion-item>
+        <ion-label>Date Start</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" id="fechaServicioInicial" [(ngModel)]="fecha_inicial"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <div class="fefser">
+      <ion-item>
+        <ion-label>Date End</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" id="fechaServicioFinal" [(ngModel)]="fecha_final"></ion-datetime>
+      </ion-item>
+    </div>
+
+    <div class="btnser">
+      <ion-item>
+        <button ion-button color="primary" full (click)="cargarServicios()">Load Services</button>
+      </ion-item> 
+    </div>
+
+  </div>
+     
+  <!--la cabecera de la grilla-->
+      <ion-item>
+        <ion-grid style="background-color: dodgerblue;">
+          <ion-row>
+            <ion-col style="max-width: 50px; text-align: center; font-weight: 300; font-size: 16px;">
+              Id
+            </ion-col>
+    
+            <ion-col style="max-width: 180px;text-align: center; font-weight: 300; font-size: 16px;">
+              Date Start
+            </ion-col>
+
+            <ion-col style="max-width: 180px; text-align: center; font-weight: 300; font-size: 16px;">
+              Date End
+            </ion-col>
+    
+            <ion-col style="max-width: 280px; text-align: center; font-weight: 300; font-size: 16px;">
+              State
+            </ion-col>
+    
+            <ion-col style="max-width: 180px; text-align: center; font-weight: 300; font-size: 16px;">
+              Activity
+            </ion-col>
+    
+            <ion-col style="max-width: 120px; text-align: center; font-weight: 300; font-size: 16px;">
+              Address
+            </ion-col>
+
+            <ion-col style="max-width: 280px; text-align: center; font-weight: 300; font-size: 16px;">
+              WorkPlace
+            </ion-col>
+    
+            <!--ion-col style="max-width: 120px; text-align: left;">
+              Ubicacion
+            </ion-col-->
+  
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+  <!--datos de la grilla-->
+   <ion-item>
+      <ion-grid  *ngFor="let servicio of servicios ">
+        <ion-row>
+          <ion-col style="max-width: 50px; text-align: left; font-weight: 300; font-size: 16px;">
+              {{ servicio.id }}
+          </ion-col>
+  
+          <ion-col style="max-width: 180px; text-align: left; font-weight: 300; font-size: 16px;">
+              {{ servicio.fecha }}
+          </ion-col>
+
+          <ion-col style="max-width: 180px; text-align: left; font-weight: 300; font-size: 16px;">
+            fecha final
+          </ion-col>
+  
+          <ion-col style="max-width: 280px; text-align: left; font-weight: 300; font-size: 16px;">
+              {{ servicio.estadoTexto }}
+          </ion-col>
+  
+          
+  
+          <ion-col style="max-width: 180px; text-align: left; font-weight: 300; font-size: 16px;">
+              {{ servicio.actividad }}
+          </ion-col>
+  
+          <ion-col style="max-width: 120px; text-align: left; font-weight: 300; font-size: 16px;">
+              {{ servicio.direccion }}
+          </ion-col>
+
+          <ion-col style="max-width: 280px; text-align: left; font-weight: 300; font-size: 16px;">
+            {{ servicio.cliente }}
+        </ion-col>
+  
+          <!--ion-col style="max-width: 120px; text-align: left;">
+            <ion-col><ion-icon name="pin" md="md-pin" (click)="ShowPositionServices(servicio)" color="primary"></ion-icon></ion-col>
+          </ion-col-->
+
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+</ion-content>

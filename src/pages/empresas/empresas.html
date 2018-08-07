@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-item>
+    <!--ion-icon name="home" md="md-home"item-start >Home</ion-icon-->
+    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start (click)="goHome()">
+    <ion-label item-end>My Company</ion-label>
+    <button ion-button color="primary" (click)="ActualizarEmpresa()" item-end>Actualizar Empresa</button>
+   
+  </ion-item>
+</ion-header>
+
+<ion-content padding> 
+  <div class="menu">
+    <ion-item >
+     <img class="logoimagen" src="assets/imgs/logoapp.png" alt="">
+    </ion-item>
+    <ion-item>
+        <table class="menutable" no-lines> 
+          <tr>
+            <td><ion-icon ios="logo-buffer" md="logo-buffer" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">My company</td>
+          </tr>
+          <tr (click)="GoEmpleados()">
+            <td><ion-icon ios="ios-contact" md="md-contact" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Employees</td>
+          </tr>
+          <tr (click)="GoConsultas()">
+            <td><ion-icon ios="ios-create" md="md-create" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Reports</td>
+          </tr>
+          <tr (click)="GoClientes()">
+            <td><ion-icon ios="ios-people" md="md-people" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Customers</td>
+          </tr>
+          <tr (click)="GoNomina()">
+            <td><ion-icon ios="ios-document" md="md-document" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Payroll</td>
+          </tr>
+          <tr (click)="GoReanudar()">
+            <td><ion-icon ios="ios-folder" md="md-folder" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Restart Jobs</td>
+          </tr>
+          <tr (click)="GoTracking()">
+            <td><ion-icon ios="ios-locate" md="md-locate" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Tracking Employees</td>
+          </tr>
+          <tr (click)="GoHorasExtras()">
+            <td><ion-icon ios="ios-stopwatch" md="md-stopwatch" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Extra Hours</td>
+          </tr>
+          <tr (click)="GoVerImagenes()">
+            <td><ion-icon ios="ios-images" md="md-images" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Image Files</td>
+          </tr>
+          <tr (click)="goChat()">
+            <td><ion-icon ios="ios-chatbubbles" md="md-chatbubbles" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Chat</td>
+          </tr>
+        </table>
+    </ion-item>
+ </div>
+            
+<div class="contenidocentral2">
+  <!--Boton para registrar una nueva empresa-->
+  <div style="width: 420px; background: #f5f6fa;">
+    <ion-item style="background: #f5f6fa;">
+      <ion-icon ios="ios-stats" md="md-stats" item-start color="primary"></ion-icon>
+      Register a new Company.
+      <button ion-button color="primary" (click)="RegistrarNuevaEmpresa()" item-end>New Company</button> 
+    </ion-item>
+  </div>
+    
+ <ion-item style="background: #f5f6fa;">
+ <!--la cabecera de la grilla-->
+ <ion-grid style="background-color: dodgerblue;">
+ <ion-row>
+   <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Id
+   </ion-col>
+   <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Nit
+   </ion-col>
+  <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Name
+  </ion-col>
+  <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Address
+  </ion-col>
+  <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Phone
+  </ion-col>
+  <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+    Actions
+  </ion-col>
+    </ion-row>
+ </ion-grid>
+</ion-item>
+ <!--Listado de las empresas con su informacion-->
+    <ion-item style="background: #f5f6fa;">
+        <ion-grid *ngFor="let empresa of empresas">
+              <ion-row>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: left;">
+                    {{ empresa.id }}
+                </ion-col>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: left;">
+                    {{ empresa.nit }}
+                </ion-col>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: left;">
+                    {{ empresa.nombre }}
+                </ion-col>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: left;">
+                    {{ empresa.direccion }}
+                </ion-col>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: left;">
+                    {{ empresa.telefono }}
+                </ion-col>
+                <ion-col style="font-weight: 300; font-size: 16px; text-align: center;">
+                    <ion-col><ion-icon name="eye" md="md-eye"></ion-icon></ion-col>
+                    <ion-col><ion-icon name="create" md="md-create"></ion-icon></ion-col>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>  
+</div>
+</ion-content>

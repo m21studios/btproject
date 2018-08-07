@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-item>
+   <!--ion-icon name="home" md="md-home"item-start >Home</ion-icon-->
+   <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start (click)="goHome()">
+   <ion-label item-end>Images Employees</ion-label>
+  </ion-item>
+</ion-header>
+
+<ion-content padding>
+  <div class="menu">
+    <ion-item>
+      <img class="logoimagen" src="assets/imgs/logoapp.png" alt="">
+    </ion-item>
+    <ion-item>
+        <table class="menutable" no-lines> 
+          <tr (click)="GoEmpresas()">
+            <td><ion-icon ios="logo-buffer" md="logo-buffer" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">My company</td>
+          </tr>
+          <tr (click)="GoEmpleados()">
+            <td><ion-icon ios="ios-contact" md="md-contact" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Employees</td>
+          </tr>
+          <tr (click)="GoConsultas()">
+            <td><ion-icon ios="ios-create" md="md-create" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Reports</td>
+          </tr>
+          <tr (click)="GoClientes()">
+            <td><ion-icon ios="ios-people" md="md-people" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Customers</td>
+          </tr>
+          <tr (click)="GoNomina()">
+            <td><ion-icon ios="ios-document" md="md-document" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Payroll</td>
+          </tr>
+          <tr (click)="GoReanudar()">
+            <td><ion-icon ios="ios-folder" md="md-folder" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Restart Jobs</td>
+          </tr>
+          <tr (click)="GoTracking()">
+            <td><ion-icon ios="ios-locate" md="md-locate" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Tracking Employees</td>
+          </tr>
+          <tr (click)="GoHorasExtras()">
+            <td><ion-icon ios="ios-stopwatch" md="md-stopwatch" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Extra Hours</td>
+          </tr>
+          <tr>
+            <td><ion-icon ios="ios-images" md="md-images" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Image Files</td>
+          </tr>
+          <tr (click)="goChat()">
+            <td><ion-icon ios="ios-chatbubbles" md="md-chatbubbles" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
+            <td style="border-bottom: 1px solid gray; width: 200px;">Chat</td>
+          </tr>
+        </table>
+      </ion-item>
+  </div>
+
+  <div class="contenidocentral2">
+    <ion-item style="background: #f5f6fa;">
+      <!--ion-row>
+        <ion-col col=4 *ngFor="let image of images">
+          <img [src]="image">
+        </ion-col>
+      </ion-row-->
+      <div class="pins">
+        <div class="pin" *ngFor="let image of images">
+            <img [src]="image"> 
+        </div>
+      </div>
+    </ion-item>
+  </div>
+
+ 
+</ion-content>

@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-item item-start>
+    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start>
+    <ion-label item-start>Register new Employee.</ion-label>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-avatar>
+      <img src="assets/imgs/logo.png">
+    </ion-avatar>
+    <button ion-button color="primary" item-end>Load Image</button>
+  </ion-item>
+
+  <form>
+  <div class="vistaizq">
+      <ion-list>
+    
+        <ion-item>
+          <ion-label floating>Id</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.identificacion" name="identificacion"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.nombres" name="nombre"></ion-input>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>Last Name</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.apellidos" name="apellido"></ion-input>
+        </ion-item>
+
+        </ion-list>
+  </div>
+
+  <div class="vistader">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Address</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.direccion" name="direccion"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating>Phone</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.telefono" name="telefono"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.email" name="email"></ion-input>
+        </ion-item>
+      </ion-list>
+  
+    </div>
+  </form>
+    
+  <ion-item class="botonescontrol">
+    <button ion-button color="primary" item-end (click)="Guardar()">Save</button>
+    <button ion-button color="danger" item-end (click)="Cancelar()">Cancel</button>
+  </ion-item>  
+    
+
+</ion-content>

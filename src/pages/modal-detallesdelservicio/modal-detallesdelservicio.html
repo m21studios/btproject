@@ -1,0 +1,198 @@
+<ion-content padding>
+  <div class="cabeceradetalle">
+    <h1 text-center>FULL DETAILED REPORT OF LABOR ACTIVITY</h1>
+    <div class="imagenempleado">
+      <img src="assets/imgs/logoapp.png" alt="" width="150px;" height="150px;">
+    </div>
+    <div class="cabeceracentral">
+      <h1 text-center>WorkPlace Main</h1>
+      <h2 text-center>Nombre del empleado</h2>
+      <p text-center>identificacion empleado</p>
+    </div>
+  </div>
+
+  <div class="contenidoDetalle">
+    <!--por numero de horas-->
+    <div class="mainpantalla">
+      <ion-card>
+        <ion-card-content>
+          <ion-card-header>Normal Horary</ion-card-header>
+          <div class="contenidotabladetalle">
+            <ion-content>
+                <table> 
+                  <tr>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">Start Time</td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">End Time</td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">Time</td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">Reason</td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">Picture</td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">Actions</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                    <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                    <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                    <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                    <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                    <td style="text-align: center; font-weight: 300; font-size: 16px;">
+                      <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" color="primary" (click)="pagarservicio()"></ion-icon>
+                      <ion-icon ios="ios-close-circle" md="md-close-circle" color="danger" (click)="cancelarservicio()"></ion-icon>
+                    </td>
+                  </tr>
+                </table>
+            </ion-content>
+          </div>
+
+          <div class="contenidofoto">
+
+          </div>
+
+          <div class="contenidoacciones">
+            <div class="entradasacciones">
+              <ion-item>
+                <ion-label>Total Hours Worked</ion-label>
+                <ion-input type="text" ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Total Approved Hours</ion-label>
+                <ion-input type="text" ></ion-input>
+              </ion-item>
+            </div>
+            <div class="botonacciones">
+              <ion-item iten-end>
+                <button ion-button icon-start color="primary">
+                  <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
+                  Pictures
+                </button>
+              </ion-item>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!--por horas extras-->
+    <div class="mainpantalla">
+      <ion-card>
+        <ion-card-header>Extra Hours</ion-card-header>
+        <ion-card-content>
+          <div class="contenidotabladetalle">
+            <ion-content>
+            <table> 
+              <tr>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Start Time</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">End Time</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Time</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Reason</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Picture</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Modality</td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">Actions</td>
+              </tr>
+              <tr>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+                <td style="text-align: center; font-weight: 300; font-size: 16px;">
+                  <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" color="primary" (click)="pagarservicio()"></ion-icon>
+                  <ion-icon ios="ios-close-circle" md="md-close-circle" color="danger" (click)="cancelarservicio()"></ion-icon>
+                </td>
+              </tr>
+            </table>
+            </ion-content>
+          </div>
+          <div class="contenidofotodos">
+
+          </div>
+          <div class="contenidoacciones">
+            <div class="entradasacciones">
+              <ion-item>
+                <ion-label>Total Hours Worked</ion-label>
+                <ion-input type="text" ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Total Approved Hours</ion-label>
+                <ion-input type="text" ></ion-input>
+              </ion-item>
+            </div>
+            <div class="botonacciones">
+              <ion-item iten-end>
+                <button ion-button icon-start color="primary">
+                  <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
+                  Pictures
+                </button>
+              </ion-item>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!--por salario normal-->
+    <div class="mainpantalla">
+      <ion-card>
+        <ion-card-header>Monthly Salary</ion-card-header>
+        <ion-card-content>
+      <div class="contenidotabladetalle">
+        <ion-content>
+          <table> 
+            <tr>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Date</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Start Time</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">End Time</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Time</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Reason</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Picture</td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">Actions</td>
+            </tr>
+            <tr>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: left; font-weight: 300; font-size: 16px;"></td>
+              <td style="text-align: center; font-weight: 300; font-size: 16px;">
+                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle" color="primary" (click)="pagarservicio()"></ion-icon>
+                <ion-icon ios="ios-close-circle" md="md-close-circle" color="danger" (click)="cancelarservicio()"></ion-icon>
+              </td>
+            </tr>
+          </table>  
+        </ion-content>
+      </div>
+      <div class="contenidofototres">
+
+      </div>
+      <div class="contenidoacciones">
+        <div class="entradasacciones">
+          <ion-item>
+            <ion-label>Total Monthly Hours</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Enter Salary Value</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </div>
+        <div class="botonacciones">
+          <ion-item iten-end>
+            <button ion-button icon-start color="primary">
+              <ion-icon ios="ios-albums" md="md-albums"></ion-icon>
+              Pictures
+            </button>
+          </ion-item>
+          <ion-item>
+            <ion-input type="text" placeholder="Total to pay"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+    </ion-card-content>
+    </ion-card>
+    </div>
+  </div>
+  <div class="separador">
+    
+  </div>
+</ion-content>

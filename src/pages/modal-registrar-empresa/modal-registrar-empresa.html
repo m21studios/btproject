@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-item item-start>
+    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="informacion">
+      <ion-list>
+
+          <ion-item>
+            <ion-label>Nit</ion-label>
+            <ion-input type="text" [(ngModel)]="nuevaEmpresa.nit" name="nit"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="nuevaEmpresa.nombre" name="nombre"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Phone</ion-label>
+            <ion-input type="text" [(ngModel)]="nuevaEmpresa.telefono" name="telefono"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Address</ion-label>
+            <ion-input type="text" [(ngModel)]="nuevaEmpresa.direccion" name="direccion"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" [(ngModel)]="nuevaEmpresa.password" name="password"></ion-input>
+          </ion-item>
+        
+        </ion-list>
+  </div>
+
+  <div id="map" class="mapa">
+
+  </div>
+  
+  <div class="botones">
+    <button ion-button color="primary" item-end (click)="Guardar()">Save</button>
+    <!--button ion-button color="primary" item-end (click)="ActualizarEmpresa()">Update</button-->
+    <button ion-button color="danger" item-end (click)="Cancelar()">Cancel</button>
+  </div>
+</ion-content>

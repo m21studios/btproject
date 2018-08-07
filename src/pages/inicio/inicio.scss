@@ -1,0 +1,90 @@
+page-inicio {
+
+}
+
+.menu{
+    width: 15%;
+    height: 100%;
+    //border: 1px solid red;
+}
+
+.logoimagen{
+    width: 150px;
+    height: 150px;
+    margin: 5px auto;
+}
+
+.contenidocentral{
+    width: 85%;
+    height: 100%;
+    //border: 1px solid blue;
+    position: absolute;
+    left: 16%;
+    top: 91px;
+}
+
+.contenidocentral2{
+    width: 85%;
+    height: 100%;
+    //border: 1px solid blue;
+    position: absolute;
+    left: 16%;
+    top: 16px;
+    background: #f5f6fa;
+}
+
+.menutable table{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white; 
+    border-bottom: 1px solid white; 
+}
+
+.menutable td{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white; 
+    border-bottom: 1px solid white; 
+    height: 42px;
+    margin-left: 12px;
+    color: #488aff;
+
+}
+
+.menutable td:hover{
+    height: 42px;
+    background: #488aff;
+    color: white;
+    
+}
+
+.menutable tr{
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white; 
+    border-bottom: 1px solid white; 
+   
+}
+
+.imagenInicio{
+    background-image: url('assets/imgs/computer.jpg');
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.tituloinicio{
+    width: 70%;
+    height: 60px;
+    margin-top: 120px;
+    margin-left: 200px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.tituloinicio h1{
+    font-weight: 300;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
