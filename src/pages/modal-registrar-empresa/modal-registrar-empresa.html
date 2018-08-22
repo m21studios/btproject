@@ -32,8 +32,13 @@
           </ion-item>
 
           <ion-item>
+            <ion-label>Email</ion-label>
+            <ion-input type="text" [(ngModel)]="nuevaEmpresa.email" name="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
             <ion-label>Password</ion-label>
-            <ion-input type="password" [(ngModel)]="nuevaEmpresa.password" name="password"></ion-input>
+            <ion-input type="password" [(ngModel)]="nuevaEmpresa.contrasena" name="password"></ion-input>
           </ion-item>
         
         </ion-list>

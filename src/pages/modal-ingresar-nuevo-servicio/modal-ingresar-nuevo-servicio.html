@@ -16,11 +16,11 @@
     <div class="fechas">
       <ion-item>
         <ion-label>Date Start</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="nuevoServicio.fecha_inicial"></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Date End</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="nuevoServicio.fecha_final"></ion-datetime>
       </ion-item>
     </div>
 
@@ -31,12 +31,12 @@
     <div class="duracion">
       <ion-item>
         <ion-label>Check In</ion-label>
-        <ion-datetime displayFormat="HH:mm:A" pickerFormat="HH mm A"></ion-datetime>
+        <ion-datetime displayFormat="HH:mm:A" pickerFormat="HH mm A" [(ngModel)]="nuevoServicio.check_in"></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label>Working time</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.totalhoras"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -46,36 +46,33 @@
 
       <ion-item *ngIf="activo">
         <ion-label>Write the rest time</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.descanzo"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Activity</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.detalleservicio"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>WorkPlace Main</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.empresa"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>WorkPlace Secondary</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.subempresa"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Address</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="nuevoServicio.direccion"></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Select a custome</ion-label>
-          <ion-select>
-            <ion-option >cliente 1</ion-option>
-            <ion-option >cliente 2</ion-option>
-            <ion-option >cliente 3</ion-option>
-            <ion-option >cliente 4</ion-option>
+          <ion-select *ngFor="let cliente of clientes">
+            <ion-option >cliente.nombre</ion-option>
           </ion-select>
       </ion-item>
 
@@ -93,98 +90,35 @@
         <ion-checkbox></ion-checkbox>
       </ion-item>
     </div>
-      <!--ion-list>
-        <ion-list-header>
-          Seleccione Modalidad de Pago
-        </ion-list-header>
-        <ion-item>
-          <ion-label>Horas</ion-label>
-          <ion-checkbox color="primary" checked="true"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Salario</ion-label>
-          <ion-checkbox color="primary" checked="false"></ion-checkbox>
-        </ion-item>
-    </ion-list>
-
-    <ion-list>
-        <ion-item>
-          <ion-label>Fecha Inicial</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" id="nuevoServiciofechaServicio" [(ngModel)]="nuevoServicio.date"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-label>Fecha Final</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" ></ion-datetime>
-        </ion-item>
-      </ion-list>
-      <ion-list>
-        <ion-item>
-          <ion-label>Hora:</ion-label>
-          <ion-input  type="number" [(ngModel)]="nuevoServicio.hora" name="hora"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Minutos:</ion-label>
-          <ion-input  type="number" [(ngModel)]="nuevoServicio.minutos" name="minutos"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>Duracion establecida</ion-label>
-            <ion-input type="number" [(ngModel)]="nuevoServicio.duracion" name="duracion"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Break</ion-label>
-          <ion-input type="number" placeholder="00"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>Actividad</ion-label>
-            <ion-input type="text" [(ngModel)]="nuevoServicio.actividad" name="act"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>WorkPlace</ion-label>
-          <ion-input type="Text" placeholder="WorkPlace"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Seconds WorkPlace</ion-label>
-          <ion-select (change)="SelectedCliente($event.target.value)">
-              <ion-option *ngFor="let cliente of clientes" [value]="cliente.nombre + ' ' + cliente.apellido">{{ cliente.nombre + ' ' + cliente.apellido }}</ion-option>
-          </ion-select>
-        </ion-item>
-        <ion-item>
-          <ion-label>Direccion</ion-label>
-          <ion-input type="text" [(ngModel)]="nuevoServicio.direccion" name="direccion"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Payload</ion-label>
-          <ion-input type="text" placeholder="valor horas"></ion-input>
-        </ion-item>
-    </ion-list-->
-
   </div>
+
   <div class="titlecontenido">
     <p>GEOFENCE</p>
   </div>
-  <div id="map" class="contenidomapa">
-
-     
+ 
+  <div id="maprange" class="contenidomapa">
+   
   </div>
 
   <div class="contenidomapaslider">
-    <!--div class="slidecontainer"-->
-      <ion-label>Selec perimeter around location</ion-label>
-      <!--input type="range" min="1" max="100" value="50" class="slider" id="myRange"-->
-      <ion-range (click)="addrange()" secondary>
-        <ion-label range-left>on</ion-label>
-        <ion-label range-right>{{radiusval}}mts</ion-label>
-      </ion-range>
-    <!--/div-->
+    <ion-item>
+        <ion-label>Selec perimeter around location</ion-label>
+        <ion-range id="value_rad" min="1" max="1000"  value="1" [(ngModel)]="radiocirculo" color="secondary" (ionChange)="updateRadius()">
+          <ion-label range-left>1</ion-label>
+          <ion-label range-right>{{radiocirculo}}:mts</ion-label>
+        </ion-range>
+      </ion-item> 
   </div>
 
   <div class="botonesBtn">
     <ion-buttons >
-      <button ion-button color="primary" item-end>Save</button>
-      <button ion-button color="danger" item-end>Cancel</button>
+      <button ion-button color="primary" item-end (click)="AsignarServicio()">Save</button>
+      <button ion-button color="danger" item-end (click)="CancelarAsignarServicio()">Cancel</button>
     </ion-buttons> 
   </div>
   <br>
-  <br>
-  
+  <br>  
+   
 </ion-content>
+
+

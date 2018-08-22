@@ -32,18 +32,15 @@ import { ModalAsignarHorasextrasPageModule } from '../pages/modal-asignar-horase
 import { HorasextrasPageModule } from '../pages/horasextras/horasextras.module';
 import { ImagenesEmpleadosPageModule } from '../pages/imagenes-empleados/imagenes-empleados.module';
 import { TrackingPageModule } from '../pages/tracking/tracking.module';
-//providers
-import { AuthProvider } from '../providers/auth/auth';
-import { ClientesProvider } from '../providers/clientes/clientes';
-import { EmpleadosProvider } from '../providers/empleados/empleados';
-import { EmpresasProvider } from '../providers/empresas/empresas';
-import { MapProvider } from '../providers/map/map';
-import { ServiciosProvider } from '../providers/servicios/servicios';
-import { UsuariosProvider } from '../providers/usuarios/usuarios';
-import { UtilProvider } from '../providers/util/util';
+
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import firebase from 'firebase/app';
-//var firebase = require("firebase/app");
+import { ApiProvider } from '../providers/api/api';
+import { Geolocation } from '@ionic-native/geolocation';
 
 var config = {
   apiKey: "AIzaSyACbz4ZMtTMptNhjs_b4JEtUCVBcBWoVZo",
@@ -90,7 +87,11 @@ firebase.initializeApp(config);
     ModalAsignarHorasextrasPageModule,
     HorasextrasPageModule,
     ImagenesEmpleadosPageModule,
-    TrackingPageModule
+    TrackingPageModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -101,15 +102,9 @@ firebase.initializeApp(config);
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,
-    ClientesProvider,
-    EmpleadosProvider,
-    EmpresasProvider,
-    MapProvider,
-    ServiciosProvider,
-    UsuariosProvider,
-    UtilProvider
+    ApiProvider
   ]
 })
 export class AppModule {}

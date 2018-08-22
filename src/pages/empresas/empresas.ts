@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ModalRegistrarEmpresaPage } from '../../pages/modal-registrar-empresa/modal-registrar-empresa';
-import { EmpresasProvider } from '../../providers/empresas/empresas';
-import { UtilProvider } from '../../providers/util/util';
+//import { EmpresasProvider } from '../../providers/empresas/empresas';
+//import { UtilProvider } from '../../providers/util/util';
 import { InicioPage } from '../../pages/inicio/inicio';
 import { EmpleadosPage } from '../../pages/empleados/empleados';
 import { ConsultasPage } from '../../pages/consultas/consultas';
@@ -13,6 +13,8 @@ import { HorasextrasPage } from '../../pages/horasextras/horasextras';
 import { ImagenesEmpleadosPage } from '../../pages/imagenes-empleados/imagenes-empleados';
 import { ModalActualizarEmpresaPage } from '../../pages/modal-actualizar-empresa/modal-actualizar-empresa';
 import { TrackingPage } from '../../pages/tracking/tracking';
+import * as firebase from 'firebase';
+//import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -21,12 +23,15 @@ import { TrackingPage } from '../../pages/tracking/tracking';
 })
 export class EmpresasPage {
 
-  empresas: any = [];
-  constructor(private empSVC: EmpresasProvider, 
+  empresas: any;
+
+  constructor(
+    //private empSVC: EmpresasProvider, 
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public modal: ModalController,
-    public util: UtilProvider) {
+    //public api: ApiProvider,
+  ) {
   }
 
   ionViewDidLoad() {
@@ -42,11 +47,15 @@ export class EmpresasPage {
   }
 
   GetEmpresas() {
-    this.empSVC.all().subscribe(
-      s => {
-        this.empresas = s;
+    var empresasRef = firebase.database().ref().child("empresas");
+    empresasRef.on("value", (snap) => {
+      var data = snap.val();
+      this.empresas = [];
+      for(var key in data)
+      {
+        this.empresas.push(data[key]);
       }
-    );
+    });
   }
 
   RegistrarNuevaEmpresa()

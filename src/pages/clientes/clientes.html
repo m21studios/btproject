@@ -4,7 +4,7 @@
     <!--ion-icon name="home" md="md-home"item-start >Home</ion-icon-->
     <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start (click)="goHome()">
     <ion-label item-end>Customers</ion-label>
-    <button ion-button color="primary" (click)="ActualizarCliente()" item-end>Actualizar Cliente</button>
+    <!--button ion-button  item-end>Actualizar Cliente</button-->
   </ion-item>
 </ion-header>
 
@@ -69,25 +69,25 @@
       <!--la cabecera de la grilla-->
       <ion-grid style="background-color: dodgerblue;">
         <ion-row>
-          <ion-col color="primary" style="max-width: 150px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col color="primary" style="max-width: 150px; text-align: left; font-weight: 300; font-size: 16px;">
             Id
           </ion-col>
-          <ion-col style="max-width: 280px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col style="max-width: 280px; text-align: left; font-weight: 300; font-size: 16px;">
             Name
           </ion-col>
-          <ion-col style="max-width: 280px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col style="max-width: 280px; text-align: left; font-weight: 300; font-size: 16px;">
             Last Name
           </ion-col>
-          <ion-col style="max-width: 200px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col style="max-width: 200px; text-align: left; font-weight: 300; font-size: 16px;">
             Address
           </ion-col>
-          <ion-col style="max-width: 100px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col style="max-width: 100px; text-align: left; font-weight: 300; font-size: 16px;">
             Phone
           </ion-col>
-          <ion-col style="max-width: 280px; text-align: center; font-weight: 300; font-size: 16px;">
+          <ion-col style="max-width: 280px; text-align: left; font-weight: 300; font-size: 16px;">
             Email
           </ion-col>  
-          <ion-col>
+          <ion-col style="max-width: 280px; text-align: center; font-size: 16px; font-weight: 300;">
             Actions
           </ion-col>
         </ion-row>
@@ -101,10 +101,10 @@
             {{ cliente.identificacion }}
           </ion-col>
           <ion-col style="max-width: 280px; text-align: left; font-size: 16px; font-weight: 300;">
-            {{ cliente.nombre }}
+            {{ cliente.nombres }}
           </ion-col>
           <ion-col style="max-width: 280px; text-align: left; font-size: 16px; font-weight: 300;">
-            {{ cliente.apellido }}
+            {{ cliente.apellidos }}
           </ion-col>
           <ion-col style="max-width: 200px; text-align: left; font-size: 16px; font-weight: 300;">
             {{ cliente.direccion }}
@@ -113,10 +113,10 @@
             {{ cliente.telefono }}
           </ion-col>
           <ion-col style="max-width: 280px; text-align: left; font-size: 16px; font-weight: 300;">
-            {{ cliente.correo }}
+            {{ cliente.email }}
           </ion-col>  
-          <ion-col>
-            <ion-col><ion-icon name="create" md="md-create"></ion-icon></ion-col>
+          <ion-col style="max-width: 280px; text-align: center; font-size: 16px; font-weight: 300;">
+            <ion-col><ion-icon name="create" md="md-create" color="primary" (click)="ActualizarCliente()"></ion-icon></ion-col>
           </ion-col>
         </ion-row>
       </ion-grid>

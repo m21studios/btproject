@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UtilProvider } from '../../providers/util/util';
-import { ServiciosProvider } from '../../providers/servicios/servicios';
-import { Result } from '../../models/Result';
-import { Solicitud } from '../../models/Solicitud';
+//import { UtilProvider } from '../../providers/util/util';
+//import { ServiciosProvider } from '../../providers/servicios/servicios';
+//import { Result } from '../../models/Result';
+//import { Solicitud } from '../../models/Solicitud';
 import { InicioPage } from '../../pages/inicio/inicio';
 import { EmpresasPage } from '../../pages/empresas/empresas';
 import { EmpleadosPage } from '../../pages/empleados/empleados';
@@ -23,18 +23,19 @@ export class ReanudarPage {
 
   fecha_inicio: string;
   fecha_final: string;
-  solicitudes: Solicitud[] = [];
+  //solicitudes: Solicitud[] = [];
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private util: UtilProvider, 
-    private svc: ServiciosProvider) {
+    //private util: UtilProvider, 
+    //private svc: ServiciosProvider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ReanudarPage');
-    this.fecha_inicio = this.util.getActualDate();
-    this.fecha_final = this.util.getActualDate();
+    //this.fecha_inicio = this.util.getActualDate();
+    //this.fecha_final = this.util.getActualDate();
   }
 
   goHome()
@@ -45,18 +46,18 @@ export class ReanudarPage {
   }
 
   getSolicitudes() {
-    this.svc.ObtenerSolicitudes(this.fecha_inicio, this.fecha_final)
+    /*this.svc.ObtenerSolicitudes(this.fecha_inicio, this.fecha_final)
       .subscribe((s: Solicitud[]) => {
         this.solicitudes = s.map(m => {
           m.nombre_empleado = m.empleado.nombres + ' ' + m.empleado.apellidos;
           m.identificacion_empleado = m.empleado.identificacion;
           return m;
         });
-      });
+      });*/
   }
 
-  AceptarReanudacion(actual_solicitud: Solicitud) {
-    this.svc.AprobarSolicitud(actual_solicitud.id).subscribe((s: Result<Solicitud>) => {
+  AceptarReanudacion(actual_solicitud) {
+    /*this.svc.AprobarSolicitud(actual_solicitud.id).subscribe((s: Result<Solicitud>) => {
       if (s.IsOk) {
         this.util.showSuccess('Solicitud aprobada exitosamente');
       } else {
@@ -64,11 +65,11 @@ export class ReanudarPage {
       }
 
       this.getSolicitudes();
-    });
+    });*/
   }
 
-  NegarReanudacion(actual_solicitud: Solicitud) {
-    this.svc.NegarSolicitud(actual_solicitud.id).subscribe((s: Result<Solicitud>) => {
+  NegarReanudacion(actual_solicitud) {
+    /*this.svc.NegarSolicitud(actual_solicitud.id).subscribe((s: Result<Solicitud>) => {
       if (s.IsOk) {
         this.util.showSuccess('Solicitud negada exitosamente');
       } else {
@@ -76,7 +77,7 @@ export class ReanudarPage {
       }
 
       this.getSolicitudes();
-    });
+    });*/
   }
 
   GoEmpresas()

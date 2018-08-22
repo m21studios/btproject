@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EmpresasProvider } from '../../providers/empresas/empresas';
+//import { ApiProvider } from '../../providers/api/api';
+/*import { EmpresasProvider } from '../../providers/empresas/empresas';
 import { MapProvider } from '../../providers/map/map';
 import { UtilProvider } from '../../providers/util/util';
 import { Empresa } from '../../models/Empresa';
-import { Result } from '../../models/Result';
+import { Result } from '../../models/Result';*/
 declare var google;
 
 @IonicPage()
@@ -14,14 +15,17 @@ declare var google;
 })
 export class ModalActualizarEmpresaPage {
 
-  actualizarEmpresa: Empresa = new Empresa();
-  empresas: any = [];
+  /*actualizarEmpresa: Empresa = new Empresa();
+  empresas: any = [];*/
+  cityCircle:any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private empSVC: EmpresasProvider, 
-    private mapSVC: MapProvider, 
-    public util: UtilProvider) {
+    //public api: ApiProvider,
+    //private empSVC: EmpresasProvider, 
+    //private mapSVC: MapProvider, 
+    //public util: UtilProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -48,7 +52,7 @@ export class ModalActualizarEmpresaPage {
         infoWindow.setContent('Location found.');
         map.setCenter(pos);
 
-        var cityCircle = new google.maps.Circle({
+        this.cityCircle = new google.maps.Circle({
           strokeColor: '#158ffa',
           strokeOpacity: 0.8,
           strokeWeight: 2,

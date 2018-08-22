@@ -75,7 +75,7 @@ export class TrackingPage {
   GoVerImagenes(){
     this.navCtrl.push(ImagenesEmpleadosPage);
   }
-
+  cityCircle:any;
   initMap() {
     var map = new google.maps.Map(document.getElementById('mapTrack'), {
       center: {lat: -34.397, lng: 150.644},
@@ -95,7 +95,7 @@ export class TrackingPage {
         infoWindow.setContent('Location found.');
         map.setCenter(pos);
 
-        var cityCircle = new google.maps.Circle({
+        this.cityCircle = new google.maps.Circle({
           strokeColor: '#158ffa',
           strokeOpacity: 0.8,
           strokeWeight: 2,

@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Servicio } from '../../models/Servicio';
-import { UtilProvider } from '../../providers/util/util';
+//import { Servicio } from '../../models/Servicio';
+//import { UtilProvider } from '../../providers/util/util';
 
 @Injectable()
 export class ServiciosProvider {
 
-  constructor(public http: HttpClient, private util: UtilProvider) {
-    console.log('Hello ServiciosProvider Provider');
+  constructor(public http: HttpClient, 
+    //private util: UtilProvider
+  ) {
+    //console.log('Hello ServiciosProvider Provider');
   }
-
+/*
   GuardarServicio(servicio: Servicio) {
     return this.http.post(this.util.hostProd + 'api/servicio/save', servicio);
   }
@@ -53,5 +55,5 @@ export class ServiciosProvider {
   EliminarServicio(id: number) {
     return this.http.get(this.util.hostProd + `api/servicio/eliminar/${id}`);
   }
-
+*/
 }

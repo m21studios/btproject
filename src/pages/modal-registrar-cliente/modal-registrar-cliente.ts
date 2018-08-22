@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase';
 
-/**
- * Generated class for the ModalRegistrarClientePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -15,7 +11,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ModalRegistrarClientePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  nuevoCliente:any = {
+    id:'',identificacion:'',nombres:'',apellidos:'',direccion:'',telefono:'',email:'',contrasena:''
+  }
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    
+  ) {
   }
 
   ionViewDidLoad() {
@@ -24,7 +26,10 @@ export class ModalRegistrarClientePage {
 
   GuardarCliente()
   {
-
+    this.nuevoCliente.id = "0";
+    this.nuevoCliente.contrasena = "123456";
+    var empresanueva = firebase.database().ref().child("clientes");
+    empresanueva.push(this.nuevoCliente);
   }
 
   ActualizarCliente()

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Empleado } from '../../models/Empleado';
-import { EmpleadosProvider } from '../../providers/empleados/empleados';
-import { Result } from '../../models/Result';
+//import { Empleado } from '../../models/Empleado';
+//import { EmpleadosProvider } from '../../providers/empleados/empleados';
+//import { Result } from '../../models/Result';
 import { InicioPage } from '../inicio/inicio';
 import { EmpresasPage } from '../../pages/empresas/empresas';
 import { EmpleadosPage } from '../../pages/empleados/empleados';
@@ -20,8 +20,8 @@ import { TrackingPage } from '../../pages/tracking/tracking';
 })
 export class NominaPage {
 
-  empleados: Empleado[];
-  empleadosaux : Empleado[];
+  //empleados: Empleado[];
+  //empleadosaux : Empleado[];
   columnas : 15;
 
   nhoras:boolean = true;
@@ -30,7 +30,8 @@ export class NominaPage {
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private emplSVC: EmpleadosProvider) {
+    //private emplSVC: EmpleadosProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -61,7 +62,7 @@ export class NominaPage {
   }
 
   GetEmpleados() {
-    let aux : any;
+    /*let aux : any;
     this.emplSVC.getEmpleados().subscribe((s: Empleado[]) => {
       //this.empleados = s; /*= s.map(
       this.empleados = s.map(
@@ -74,7 +75,7 @@ export class NominaPage {
         }
       );
       //console.log("empleados", this.empleados);
-    });
+    });*/
   }
 
   /*InitEmpleados() {

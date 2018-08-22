@@ -3,10 +3,10 @@ import { IonicPage, NavController, NavParams, ModalController, AlertController, 
 import { ModalRegistrarEmpleadoPage } from '../../pages/modal-registrar-empleado/modal-registrar-empleado';
 import { ModalIngresarNuevoServicioPage } from '../../pages/modal-ingresar-nuevo-servicio/modal-ingresar-nuevo-servicio';
 import { ModalListarServiciosPage } from '../../pages/modal-listar-servicios/modal-listar-servicios';
-import { Cliente } from '../../models/Cliente';
-import { Servicio } from '../../models/Servicio';
-import { Empleado } from '../../models/Empleado';
-import { EmpleadosProvider } from '../../providers/empleados/empleados';
+//import { Cliente } from '../../models/Cliente';
+//import { Servicio } from '../../models/Servicio';
+//import { Empleado } from '../../models/Empleado';
+//import { EmpleadosProvider } from '../../providers/empleados/empleados';
 import { InicioPage } from '../../pages/inicio/inicio';
 import { EmpresasPage } from '../../pages/empresas/empresas';
 import { ConsultasPage } from '../../pages/consultas/consultas';
@@ -18,6 +18,8 @@ import { ModalDetallesdelservicioPage } from '../../pages/modal-detallesdelservi
 import { HorasextrasPage } from '../../pages/horasextras/horasextras';
 import { ImagenesEmpleadosPage } from '../../pages/imagenes-empleados/imagenes-empleados';
 import { TrackingPage } from '../../pages/tracking/tracking';
+//import { ApiProvider } from '../../providers/api/api';
+import * as firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -26,23 +28,27 @@ import { TrackingPage } from '../../pages/tracking/tracking';
 })
 export class EmpleadosPage {
 
-  clientes: Cliente[];
-  empresas: any = [];
-  empleados: any = [];
-  servicios: Array<Servicio>;
+
+  //empleado:any;
+  empleados:any; //= {foto:'',identificacion:'',nombres:'',apellidos:'',telefono:'',direccion:'',BateriaPhone:'',estado:''};
   consultaEmpleado:any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public modal: ModalController,
-    private emplSVC: EmpleadosProvider,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EmpleadosPage');
-    //this.GetEmpleados();
+    //console.log('ionViewDidLoad EmpleadosPage');
+    this.GetEmpleados();
+ 
+  }
+
+  ionViewDidEnter(){
+    this.GetEmpleados();
   }
 
   BuscarunEmpleado(data:any){
@@ -91,20 +97,37 @@ export class EmpleadosPage {
     listarservicios.present();
   }
 
-  IngresarServicio(){
+  IngresarServicio(data){
+    console.log('se va a registrar un nuevo servicio para el empleado');
+    const nuevoservicio = this.modal.create(ModalIngresarNuevoServicioPage);
+    nuevoservicio.present();
+  } 
+
+  nuevoServicio(id){
     console.log('se va a registrar un nuevo servicio para el empleado');
     const nuevoservicio = this.modal.create(ModalIngresarNuevoServicioPage);
     nuevoservicio.present();
   }
 
+  ActualizarEmpleado(id){
+    const actualizarEmpleado = this.modal.create(ModalActualizarEmpleadoPage);
+    actualizarEmpleado.present();
+  }
+
+  detalleServicioEmpleado(){
+    const detalleservicio = this.modal.create(ModalDetallesdelservicioPage);
+    detalleservicio.present();
+  }
+
   GetEmpleados() {
-    this.emplSVC.getEmpleados().subscribe((s: Empleado[]) => {
-      this.empleados = s.map(
-        m => {
-          if (m.pulsera === undefined || m.pulsera === '' || m.pulsera === null) { m.pulsera = 'no registra'; }
-          return m;
-        }
-      );
+    var empleadosRef = firebase.database().ref().child("empleados");
+    empleadosRef.on("value", (snap) => {
+      var data = snap.val();
+      this.empleados = [];
+      for(var key in data)
+      {
+        this.empleados.push(data[key]);
+      }
     });
   }
 
@@ -151,20 +174,6 @@ export class EmpleadosPage {
     this.navCtrl.push(TrackingPage);
   }
 
-  nuevoServicio(){
-    console.log('se va a registrar un nuevo servicio para el empleado');
-    const nuevoservicio = this.modal.create(ModalIngresarNuevoServicioPage);
-    nuevoservicio.present();
-  }
-
-  ActualizarEmpleado(){
-    const actualizarEmpleado = this.modal.create(ModalActualizarEmpleadoPage);
-    actualizarEmpleado.present();
-  }
-
-  detalleServicioEmpleado(){
-    const detalleservicio = this.modal.create(ModalDetallesdelservicioPage);
-    detalleservicio.present();
-  }
+ 
 
 }

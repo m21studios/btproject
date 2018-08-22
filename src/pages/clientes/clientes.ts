@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ModalRegistrarClientePage } from '../../pages/modal-registrar-cliente/modal-registrar-cliente';
-import { Cliente } from '../../models/Cliente';
-import { ClientesProvider } from '../../providers/clientes/clientes';
-import { Result } from '../../models/Result';
+
 import { InicioPage } from '../../pages/inicio/inicio';
 import { EmpresasPage } from '../../pages/empresas/empresas';
 import { EmpleadosPage } from '../../pages/empleados/empleados';
@@ -14,6 +12,8 @@ import { HorasextrasPage } from '../../pages/horasextras/horasextras';
 import { ImagenesEmpleadosPage } from '../../pages/imagenes-empleados/imagenes-empleados';
 import { ModalActualizarClientePage } from '../../pages/modal-actualizar-cliente/modal-actualizar-cliente';
 import { TrackingPage } from '../../pages/tracking/tracking';
+import * as firebase from 'firebase';
+//import { ApiProvider } from '../../providers/api/api';
 
 @IonicPage()
 @Component({
@@ -22,16 +22,16 @@ import { TrackingPage } from '../../pages/tracking/tracking';
 })
 export class ClientesPage {
 
-  clientes: Cliente[];
+ clientes:any; 
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public modal:ModalController,
-    private clienteSVC: ClientesProvider) {
+    //public api:ApiProvider
+    ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ClientesPage');
     this.getClientes();
   }
 
@@ -44,14 +44,14 @@ export class ClientesPage {
   }
 
   getClientes() {
-    this.clienteSVC.GetClientes().subscribe((clts: Result<Cliente[]>) => {
-      if (clts.IsOk) {
-        this.clientes = clts.Data;
-      }else {
-        //this.util.showError(clts.Mensaje);
+    var clientesRef = firebase.database().ref().child("clientes");
+    clientesRef.on("value", (snap) => {
+      var data = snap.val();
+      this.clientes = [];
+      for(var key in data)
+      {
+        this.clientes.push(data[key]);
       }
-
-      console.log(this.clientes);
     });
   }
 

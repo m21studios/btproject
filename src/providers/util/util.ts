@@ -1,22 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable,  ViewContainerRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 //import { ToastsManager } from 'ng2-toastr';
-import { Subject } from 'rxjs/Subject';
+//import { Subject } from 'rxjs/Subject';
 //import { query } from '@angular/core/src/animation/dsl';
-import { Result } from '../../models/Result';
+//import { Result } from '../../models/Result';
 
-declare var Foundation;
+//declare var Foundation;
 //declare var jQuery: any;
-declare var $;
+//declare var $;
 
 
 @Injectable()
 export class UtilProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello UtilProvider Provider');
+  //  console.log('Hello UtilProvider Provider');
   }
-
+/*
   public host = '';
   //public hostProd = 'btproject.co/';
   public hostProd = 'http://btapp.btproject.co/';
@@ -157,5 +157,5 @@ export class UtilProvider {
       res.IsOk = false;
       return res;
     }
-  }
+  }*/
 }

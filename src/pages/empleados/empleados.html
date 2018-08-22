@@ -3,20 +3,21 @@
    <!--ion-icon name="home" md="md-home"item-start >Home</ion-icon-->
    <img src="assets/imgs/cse.jpeg" alt="" width="90px" height="60px" item-start (click)="goHome()">
    <ion-label item-end>Employees</ion-label>
-    <button ion-button color="primary" item-end (click)="nuevoServicio()">nuevo servicio</button>
+    <!--button ion-button color="primary" item-end (click)="nuevoServicio()">nuevo servicio</button>
     <button ion-button color="primary" (click)="ActualizarEmpleado()" item-end>Actualizar Empleado</button>
-    <button ion-button color="primary" (click)="detalleServicioEmpleado()" item-end>Detalle Servicio</button>
+    <button ion-button color="primary" (click)="detalleServicioEmpleado()" item-end>Detalle Servicio</button-->
     
  </ion-item>
 </ion-header> 
 
 <ion-content padding>
-    <div class="menu">
-        <ion-item>
-            <img class="logoimagen" src="assets/imgs/logoapp.png" alt="">
-        </ion-item>
-        <ion-item>
-            <table class="menutable" no-lines> 
+ <div class="menu">
+  <ion-item>
+   <img class="logoimagen" src="assets/imgs/logoapp.png" alt="">
+  </ion-item>
+  <ion-item>
+
+   <table class="menutable" no-lines> 
                     <tr (click)="GoEmpresas()">
                         <td><ion-icon ios="logo-buffer" md="logo-buffer" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
                         <td style="border-bottom: 1px solid gray; width: 200px;">My company</td>
@@ -57,61 +58,54 @@
                         <td><ion-icon ios="ios-chatbubbles" md="md-chatbubbles" color="primary"  style="left: 50px; font-weight: 200; font-size: 22px;"></ion-icon></td>
                         <td style="border-bottom: 1px solid gray; width: 200px;">Chat</td>
                       </tr>
-            </table>
-        </ion-item>
-    </div>
+    </table>
+   </ion-item>
+ </div>
             
-    <div class="contenidocentral2">
-    <ion-item>
-        <ion-label color="primary">Find Employee</ion-label>
-        <ion-icon ios="ios-people" md="md-people" item-start color="primary"></ion-icon>
-        <ion-input placeholder="Search the Employee" [(ngModel)]="consultaEmpleado"></ion-input>
-        <button ion-button color="primary" item-end (click)="BuscarunEmpleado(data)">Find Employee</button>
-        <button ion-button color="danger" (click)="RegistrarEmpleado()" item-end>New Employee</button>
-    </ion-item>
-        <ion-item style="background: #f5f6fa;">
-               
-        <!--la cabecera de la grilla-->
-            <ion-grid style="background-color: dodgerblue;">  
-                <ion-row>
-                    <ion-col style="max-width: 60px; text-align: center; font-weight: 300;">
-                        <ion-icon name="camera" md="md-camera"></ion-icon>
-                    </ion-col>
-                    <ion-col style="max-width: 100px; text-align: center; font-weight: 300;">
-                        Id
-                    </ion-col>
-                    <ion-col style="max-width: 280px; text-align: center; font-weight: 300;">
-                        Names
-                    </ion-col>
-                    <ion-col style="max-width: 100px; text-align: center; font-weight: 300;">
-                        Phone
-                    </ion-col>
-                    <ion-col style="max-width: 180px; text-align: center; font-weight: 300;">
-                        Address
-                    </ion-col>
-                    <ion-col style="max-width: 60px; text-align: center; font-weight: 300;">
-                        <ion-icon name="battery-charging" md="md-battery-charging"></ion-icon>
-                    </ion-col>
-                    <ion-col style="max-width: 100px; text-align: center; font-weight: 300;">
-                        State<!--ion-icon name="bluetooth" md="md-bluetooth"></ion-icon-->
-                    </ion-col> 
-                    <ion-col style="max-width: 100px; text-align: center; font-weight: 300;">
-                        Actions
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-item>
+ <div class="contenidocentral2">
+  <ion-item>
+    <ion-label color="primary">Find Employee</ion-label>
+    <ion-icon ios="ios-people" md="md-people" item-start color="primary"></ion-icon>
+    <ion-input placeholder="Search the Employee" [(ngModel)]="consultaEmpleado"></ion-input>
+    <button ion-button color="primary" item-end (click)="BuscarunEmpleado(data)">Find Employee</button>
+    <button ion-button color="danger" (click)="RegistrarEmpleado()" item-end>New Employee</button>
+  </ion-item>
+  <ion-item style="background: #f5f6fa;">     
+    <!--la cabecera de la grilla-->
+    <ion-grid style="background-color: dodgerblue;">  
+     <ion-row>
+      <ion-col style="max-width: 60px; text-align: left; font-weight: 300;">
+        <ion-icon name="camera" md="md-camera"></ion-icon>
+      </ion-col>
+      <ion-col style="max-width: 100px; text-align: left; font-weight: 300;">
+        Id
+      </ion-col>
+      <ion-col style="max-width: 280px; text-align: left; font-weight: 300;">
+        Names
+      </ion-col>
+      <ion-col style="max-width: 100px; text-align: left; font-weight: 300;">
+        Phone
+      </ion-col>
+      <ion-col style="max-width: 180px; text-align: left; font-weight: 300;">
+        Address
+      </ion-col>
+      <ion-col style="max-width: 100px; text-align: center; font-weight: 300;">
+        Actions
+      </ion-col>
+     </ion-row>
+    </ion-grid>
+ </ion-item>
         <!--Listado de las empresas con su informacion-->
         <ion-item style="background: #f5f6fa;">
             <ion-grid ng-if="empleados.length > 0" *ngFor="let empleado of empleados">
                 <ion-row>
                     <ion-col style="max-width: 60px; text-align: left; font-weight: 300;">
                         <ion-avatar>
-                            <img src="{{empleado.foto }}">
+                            <img src="{{ empleado.imagen }}">
                         </ion-avatar>
                     </ion-col>
                     <ion-col style="max-width: 100px; text-align: left; font-weight: 300;">
-                        {{ empleado.identificacion }}
+                        {{ empleado.idempleado }}
                     </ion-col>
                     <ion-col style="max-width: 280px; text-align: left; font-weight: 300;">
                         {{ empleado.nombres + " " + empleado.apellidos }}
@@ -122,18 +116,18 @@
                     <ion-col style="max-width: 180px; text-align: left; font-weight: 300;">
                         {{ empleado.direccion }}
                     </ion-col>
-                    <ion-col style="max-width: 60px; text-align: left; font-weight: 300;">
+                    <!--ion-col style="max-width: 60px; text-align: left; font-weight: 300;">
                         {{ empleado.BateriaPhone + "%" }}
-                    </ion-col>
-                    <ion-col style="max-width: 100px; text-align: left; font-weight: 300;">
-                        {{empleado.estado}}<!--ion-icon name="bluetooth" md="md-bluetooth"></ion-icon-->
-                    </ion-col> 
+                    </ion-col-->
+                    <!--ion-col style="max-width: 100px; text-align: left; font-weight: 300;">
+                        {{empleado.estado}}<!ion-icon name="bluetooth" md="md-bluetooth"></ion-icon--
+                    </ion-col--> 
                                 
                    <ion-col style="max-width: 100px; text-align: center;">
-                        <ion-col><ion-icon name="list-box" md="md-list-box" (click)="ListarServicios(empleado.id)"></ion-icon></ion-col>
-                        <ion-col><ion-icon name="create" md="md-create"></ion-icon></ion-col>
-                        <ion-col><ion-icon name="add" md="md-add" (click)="IngresarServicio()"></ion-icon></ion-col>
-                        <ion-col><ion-icon name="locate" md="md-locate"></ion-icon></ion-col>
+                        <ion-col><ion-icon name="list-box" md="md-list-box" color="verde" (click)="ListarServicios(empleado.id)"></ion-icon></ion-col>
+                        <ion-col><ion-icon name="create" md="md-create" color="naranja" (click)="ActualizarEmpleado(empleado.id)"></ion-icon></ion-col>
+                        <ion-col><ion-icon name="add" md="md-add" color="agregar" (click)="IngresarServicio(empleado.id)"></ion-icon></ion-col>
+                        <!--ion-col><ion-icon name="locate" md="md-locate"></ion-icon></ion-col-->
                     </ion-col>
                 </ion-row>
             </ion-grid>

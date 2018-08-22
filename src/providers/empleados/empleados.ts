@@ -1,15 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Empleado } from '../../models/Empleado';
-import { UtilProvider } from '../../providers/util/util';
+//import { Empleado } from '../../models/Empleado';
+//import { UtilProvider } from '../../providers/util/util';
 
 @Injectable()
 export class EmpleadosProvider {
 
-  constructor(public http: HttpClient, private util: UtilProvider) {
-    console.log('Hello EmpleadosProvider Provider');
+  constructor(public http: HttpClient, 
+    //private util: UtilProvider
+  ) {
+    //console.log('Hello EmpleadosProvider Provider');
   }
-
+/*
   public getEmpleados() {
     return this.http.get(this.util.hostProd + 'api/empleados');
   }
@@ -32,6 +34,6 @@ export class EmpleadosProvider {
 
   public EliminarEmpleado(id: number) {
     return this.http.get(this.util.hostProd + `api/empleados/desactivar/${id}`);
-  }
+  }*/
 
 }

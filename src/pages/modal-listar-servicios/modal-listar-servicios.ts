@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Servicio } from '../../models/Servicio';
+//import { ApiProvider } from '../../providers/api/api';
+/*import { Servicio } from '../../models/Servicio';
 import { ServiciosProvider } from '../../providers/servicios/servicios';
 import { UtilProvider } from '../../providers/util/util';
 import { Empleado } from '../../models/Empleado';
-import { Result } from '../../models/Result';
+import { Result } from '../../models/Result';*/
 
 @IonicPage()
 @Component({
@@ -13,17 +14,18 @@ import { Result } from '../../models/Result';
 })
 export class ModalListarServiciosPage {
 
-  servicios: Array<Servicio>;
+  /*servicios: Array<Servicio>;
   SelectedService: Servicio;
   fecha_inicial: any;
   fecha_final: any;
   empleadoSeleccionado: Empleado = new Empleado();
-  datorecibido: any;
-
+  */
+ datorecibido: any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private serviceSVC: ServiciosProvider,
-    public util: UtilProvider,) {
+    //public api: ApiProvider,
+    /*private serviceSVC: ServiciosProvider,
+  public util: UtilProvider,*/) {
       
   }
 
@@ -33,13 +35,13 @@ export class ModalListarServiciosPage {
     console.log("los datos que recibo son: ", this.datorecibido );
   }
 
-  ShowPositionServices(svc: Servicio) {
-    this.SelectedService = svc;
+  ShowPositionServices(svc) {
+    //this.SelectedService = svc;
     //this.mdl_pos_svc.Show();
   }
 
   cargarServicios() {
-    this.empleadoSeleccionado.id = this.datorecibido;
+    /*this.empleadoSeleccionado.id = this.datorecibido;
     this.serviceSVC.ObtenerServicios(this.empleadoSeleccionado.id, this.fecha_inicial, this.fecha_final)
       .subscribe((s: Result<Servicio[]>) => {
         if (s.IsOk) {
@@ -53,7 +55,7 @@ export class ModalListarServiciosPage {
         } else {
           this.util.showWarning('no exiten servicios registrados en el intervalo de fecha establecido');
         }
-      });
+      });*/
   }
 
 }

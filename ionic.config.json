@@ -1,10 +1,7 @@
 {
-  "name": "btproject",
-  "app_id": "",
-  "type": "ionic-angular",
+  "name": "Cse Control System for Employees",
   "integrations": {
     "cordova": {}
-  }
-  
+  },
+  "type": "ionic-angular"
 }
-

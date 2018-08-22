@@ -2,23 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 //import { Observable } from 'rxjs/Rx';
 
-declare var google;
+//declare var google;
 
 @Injectable()
 export class MapProvider {
 
-  
+  /*
   private nameMap : string;
   private nameInput : string;
 
   public mapa : HTMLElement;
   public markers: any[] = [];
-  public htmlSearchBox: HTMLElement;  
+  public htmlSearchBox: HTMLElement;  */
 
   constructor(public http: HttpClient) {
-    console.log('Hello MapProvider Provider');
+    //console.log('Hello MapProvider Provider');
   }
-
+/*
   public init(MapName : string, searchBoxName? : string){
     this.nameMap = MapName;
     this.nameInput = searchBoxName;
@@ -121,6 +121,6 @@ export class MapProvider {
     } catch (e) {
       console.log(e);
     }*/
-  }
+  //}
 
 }

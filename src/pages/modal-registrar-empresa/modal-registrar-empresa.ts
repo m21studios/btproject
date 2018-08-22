@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EmpresasProvider } from '../../providers/empresas/empresas';
-import { MapProvider } from '../../providers/map/map';
-import { UtilProvider } from '../../providers/util/util';
-//import { GmapComponent } from '../../controls/gmap/gmap.component';
-import { Empresa } from '../../models/Empresa';
-import { Result } from '../../models/Result';
+//import { AngularFireDatabase } from 'angularfire2/database/database';
+import * as firebase from 'firebase';
 declare var google;
 
 @IonicPage()
@@ -15,20 +11,23 @@ declare var google;
 })
 export class ModalRegistrarEmpresaPage {
 
-  nuevaEmpresa: Empresa = new Empresa();
-  empresas: any = [];
+  //nuevaEmpresa: Empresa = new Empresa();
+  empresas: any;
+  nuevaEmpresa:any = {
+    id:'', nit:'',nombre:'',telefono:'',direccion:'',email:'',contrasena:'',imagen:''
+  };
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    private empSVC: EmpresasProvider, 
-    private mapSVC: MapProvider, 
-    public util: UtilProvider) {
+    //public afdb: AngularFireDatabase,
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalRegistrarEmpresaPage');
     this.initMap();
   }
+  cityCircle:any;
 
   initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -48,8 +47,8 @@ export class ModalRegistrarEmpresaPage {
         infoWindow.setPosition(pos);
         infoWindow.setContent('Location found.');
         map.setCenter(pos);
-
-        var cityCircle = new google.maps.Circle({
+        
+        this.cityCircle = new google.maps.Circle({
           strokeColor: '#158ffa',
           strokeOpacity: 0.8,
           strokeWeight: 2,
@@ -76,31 +75,16 @@ export class ModalRegistrarEmpresaPage {
   }
 
   GetEmpresas() {
-    this.empSVC.all().subscribe(
-      s => {
-        this.empresas = s;
-      }
-    );
+
   }
 
   Guardar() {
-    //const marker = this.mapaComponent.GetMarker();
-    //if (marker === null) {
-     // this.util.showErrorTitle('Error', 'Debe elegir una ubicacion valida');
-     // return;
-    //}
+    
+    this.nuevaEmpresa.imagen = "assets/imgs/cse.jpeg";
+    var empresanueva = firebase.database().ref().child("empresas");
+    empresanueva.push(this.nuevaEmpresa);
 
-    //this.nuevaEmpresa.latitud = marker.lat();
-    //this.nuevaEmpresa.longitud = marker.lng();
-    this.nuevaEmpresa.id = null;
-    this.empSVC.guardar(this.nuevaEmpresa).subscribe((s: Result<Empresa>) => {
-      if (s.IsOk === true) {
-        this.util.showSuccess('Registro guardado exitosamente!');
-        //$(this.modalID).foundation('close');
-      } else {
-        this.util.showError(s.Mensaje);
-      }
-    });
+    //this.afdb.database.ref('empresas/' + this.nuevaEmpresa.id).set(this.nuevaEmpresa);
   }
 
   Actualizar() {
@@ -113,18 +97,18 @@ export class ModalRegistrarEmpresaPage {
     //this.nuevaEmpresa.latitud = marker.lat();
     //this.nuevaEmpresa.longitud = marker.lng();
 
-    this.empSVC.editar(this.nuevaEmpresa).subscribe((s: Result<Empresa>) => {
+    /*this.empSVC.editar(this.nuevaEmpresa).subscribe((s: Result<Empresa>) => {
       if (s.IsOk === true) {
         this.util.showSuccess('Registro actualizado exitosamente!');
         //$(this.modalID).foundation('close');
       } else {
         this.util.showError(s.Mensaje);
       }
-    });
+    });*/
   }
 
   limpiar() {
-    this.nuevaEmpresa = new Empresa();
+    //this.nuevaEmpresa = new Empresa();
     //this.mapaComponent.ClearMarker();
     //$(this.modalID).foundation('close');
   }

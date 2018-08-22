@@ -13,16 +13,16 @@
     <ion-avatar>
       <img src="assets/imgs/logo.png">
     </ion-avatar>
-    <button ion-button color="primary" item-end>Load Image</button>
+    <button ion-button color="primary" item-end (click)="cargarImagenFromPc()">Load Image</button>
   </ion-item>
 
-  <form>
+  
   <div class="vistaizq">
       <ion-list>
     
         <ion-item>
           <ion-label floating>Id</ion-label>
-          <ion-input type="text" [(ngModel)]="nuevoEmpleado.identificacion" name="identificacion"></ion-input>
+          <ion-input type="text" [(ngModel)]="nuevoEmpleado.idempleado" name="identificacion"></ion-input>
         </ion-item>
         
         <ion-item>
@@ -57,7 +57,7 @@
       </ion-list>
   
     </div>
-  </form>
+  
     
   <ion-item class="botonescontrol">
     <button ion-button color="primary" item-end (click)="Guardar()">Save</button>

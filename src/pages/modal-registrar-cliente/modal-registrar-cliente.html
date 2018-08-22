@@ -9,47 +9,40 @@
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Nit</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoCliente.identificacion"></ion-input>
+    </ion-item>
+       
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoCliente.nombres"></ion-input>
+    </ion-item>
+
+    <!--ion-item>
+      <ion-label floating>Last Name</ion-label>
+      <ion-input type="text" ></ion-input>
+    </ion-item-->
+
+    <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoCliente.direccion"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoCliente.telefono"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="nuevoCliente.email"></ion-input>
+    </ion-item>  
+  </ion-list>
   
-    <ion-list>
-
-        <ion-item>
-          <ion-label floating>Id</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label floating>Name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Last Name</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Address</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Phone</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label floating>Email</ion-label>
-            <ion-input type="text"></ion-input>
-        </ion-item>
-      
-      </ion-list>
-  
-
-    <ion-buttons item-end>
-      <button ion-button color="primary" item-end (click)="GuardarCliente()">Save</button>
-      <button ion-button color="danger" item-end (click)="Cancelar()">Cancel</button>
-    </ion-buttons>  
-
-
-
+  <ion-buttons item-end>
+    <button ion-button color="primary" item-end (click)="GuardarCliente()">Save</button>
+    <button ion-button color="danger" item-end (click)="Cancelar()">Cancel</button>
+  </ion-buttons>  
 </ion-content>
